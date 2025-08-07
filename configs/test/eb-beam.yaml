@@ -1,0 +1,27 @@
+data:
+  name: 'Euler-Bernoulli Beam'
+  BC: 'CS'
+  datapath: '/mnt/sbd1/data/trungvd/data/physics_informed/eb_beam/linear/eb_beam_linear_CS_1025_rng0.mat'
+  total_num: 20000
+  offset: 2000
+  n_sample: 2000
+  nx: 1025
+  sub: 8
+  in_dim: 3
+  out_dim: 2
+  q0: 1.0
+  E: 1.0
+  I0: 1.0
+  L: 1.0
+
+model:
+  name: 'fno'
+  layers: [64, 64, 64, 64, 64]
+  modes: [10, 10, 10, 10]
+  fc_dim: 128
+  act: gelu
+  apply_output_transform: 'yes'
+
+test:
+  batchsize: 1
+  ckpt: 'checkpoints/eb-beam/eb-beam-pretrain-eqn.pt'

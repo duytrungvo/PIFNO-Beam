@@ -1,0 +1,1 @@
+from .fourier1d import FNO1d
